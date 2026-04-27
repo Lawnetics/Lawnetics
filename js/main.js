@@ -81,9 +81,32 @@ window.addEventListener('scroll', () => {
   }
 });
 
+// ===== ACTIVE LINK HIGHLIGHTING =====
+function highlightActiveLink() {
+  const currentPath = window.location.pathname;
+  const fileName = currentPath.split('/').pop() || 'index.html';
+  
+  const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link, .dropdown-link');
+  navLinks.forEach(link => {
+    const href = link.getAttribute('href');
+    if (href === fileName) {
+      link.classList.add('active');
+      
+      // If it's a dropdown link, also highlight the parent "Our Services"
+      if (link.classList.contains('dropdown-link')) {
+        const servicesParent = document.querySelector('.nav-item span.nav-link');
+        if (servicesParent) servicesParent.classList.add('active');
+      }
+    } else {
+      link.classList.remove('active');
+    }
+  });
+}
+
 // ===== INIT =====
 document.addEventListener('DOMContentLoaded', () => {
   initFadeIns();
+  highlightActiveLink();
   
   // Handle Contact Form
   const contactForm = document.getElementById('contactForm');

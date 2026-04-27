@@ -134,7 +134,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 80px;
+  height: 100px;
 }
 
 .logo-wrap {
@@ -143,7 +143,7 @@ header {
 }
 
 .logo-wrap img {
-  height: 64px;
+  height: 85px;
   width: auto;
   object-fit: contain;
 }
@@ -1055,7 +1055,7 @@ footer {
 }
 
 .footer-brand img {
-  height: 72px;
+  height: 95px;
   width: auto;
   object-fit: contain;
   background: white;
